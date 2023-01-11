@@ -1,0 +1,23 @@
+#!/usr/bin/env zsh -e
+prefix=""
+
+# On MacOS, there is no realpath (and readlink doesn't do it either) so we build
+# our own.
+function realpath {
+    pushd "$1"
+    r="$(pwd -P)"
+    popd
+    echo "$r"
+}
+
+top=$(realpath "$(git rev-parse --show-toplevel)")
+
+
+while [[ $(pwd -P) != "${top}" ]] ; do
+    cd ..
+    prefix="../$prefix"
+    if [[ $(pwd -P) == / ]] ; then 
+        break
+    fi
+done
+git grep --no-recurse-submodules "$@" | sed -e "s:^:$prefix:"

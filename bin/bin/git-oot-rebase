@@ -1,0 +1,46 @@
+#! /usr/bin/env bash -e -o pipefail
+# Out-Of-Tree Rebase: rebase a branch without touching the working tree
+# The work is done in a temporary repository
+
+# Introduced here: http://stackoverflow.com/a/12481546/99057
+
+tempdir=/tmp/oot-rebase-$$
+sourcerepo=$(git rev-parse --show-toplevel)
+branch=$1
+shift
+upstream=$1
+shift
+
+if [ "$branch" == "" ]; then
+    echo "Out-of-tree rebase"
+    echo "    Usage: $0 <branch> [<upstream> <options>]"
+    echo "    Rebases <branch> on <upstream> outside of the working tree, passing <options> to git-rebase(1)"
+    echo "    <upstream> defaults to origin/master (but must be specified if options are given)"
+    echo "    Doesn't work on the current HEAD branch."
+    echo "    If the rebase is not successful, does nothing."
+    exit
+fi
+if [ "$upstream" == "" ]; then
+    upstream=origin/master
+fi
+
+if [ $(git merge-base $upstream $branch) = $(git rev-parse $upstream) ]; then
+    echo Already merged
+    exit
+fi
+
+echo Rebasing $branch to $upstream
+
+set -x
+
+mkdir $tempdir
+cd $tempdir
+
+git init
+echo $sourcerepo/.git/objects > .git/objects/info/alternates
+git fetch -n $sourcerepo $branch:oot-rebase/$branch $upstream:oot-rebase/$upstream
+git checkout oot-rebase/$branch
+git rebase oot-rebase/$upstream "$@"
+git push -f $sourcerepo oot-rebase/$branch:$branch
+
+rm -rf $tempdir

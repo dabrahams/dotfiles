@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+cd $HOME/brew/share/info
+mv dir dir.orig
+for file in *; do install-info --calign=36 --align=36 $file dir; done

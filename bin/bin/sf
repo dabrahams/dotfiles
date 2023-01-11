@@ -1,0 +1,19 @@
+#!/usr/bin/env zsh -e
+prefix=""
+
+# On MacOS, there is no realpath (and readlink doesn't do it either) so we build
+# our own.
+function realpath {
+    pushd "$1"
+    r="$(pwd -P)"
+    popd
+    echo "$r"
+}
+
+top=$(realpath "$(git rev-parse --show-toplevel)")
+
+swift-format format -i -r --configuration "$top/.swift-format.json" \
+  -p "$top/Sources" "$top/Tests" "$top/Package.swift"
+
+swift-format lint -r  --configuration "$top/.swift-format.json" \
+  -p "$top/Sources" "$top/Tests" "$top/Package.swift"
