@@ -1,2 +1,2 @@
 #!/usr/bin/env bash -l
-open -n -a "/Applications/Emacs.app" --args "$@" || open -n -a "/Applications/Emacs" --args "$@"
+open -n -a "/Applications/Emacs.app" --args "$@" 2> /dev/null || open -n -a "/Applications/Emacs" --args "$@"
