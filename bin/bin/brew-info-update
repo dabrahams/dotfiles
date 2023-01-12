@@ -1,4 +1,4 @@
 #!/usr/bin/env sh
-cd $HOMEBREW_PREFIX/share/info
+cd $(brew --prefix)/share/info
 mv dir dir.orig
-for file in *; do install-info --calign=36 --align=36 $file dir; done
+for file in *; do install-info $file dir; done
