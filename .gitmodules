@@ -1,0 +1,3 @@
+[submodule "git-subline-merge"]
+	path = submodule/git-subline-merge
+	url = https://github.com/paulaltin/git-subline-merge.git
