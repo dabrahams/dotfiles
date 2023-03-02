@@ -1,4 +1,6 @@
+.DS_Store
 emacs/*/history
 emacs/*/ido.last
 emacs/*/transient
 emacs/*/elpa
+emacs/*/.tramp_history

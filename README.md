@@ -6,12 +6,35 @@ This is a stow directory.  The target directory is always my home directory.
 
 ### Mac configuration
 
+
 #### Keyboard
 
 - Max repeat rate
 - penultimate short repeat delay
 - Keyboard shortcuts
-  -
+  - clear:
+    - Launchpad & Dock
+    - Display
+    - Mission Control
+    - Keyboard
+    - Screenshots
+    - Services
+    - Accessibility
+  - Screenshots: assign ctrl-opt-cmd-5 to "Screenshot and Recording Options"
+  - Function Keys: use F1, F2, etc. as standard function keys
+  - Modifier Keys: Caps-lock is control
+
+- Character viewer
+  - Press globe key to open emoji & symbols
+  - Click the icon in upper right to expand
+  - Click "..." at upper left and choose "customize list"
+  - Open "Code Tables" at bottom and select Unicode
+
+#### 1Password
+
+- Clear keyboard shortcuts
+
+- Consider: [Universal Autofill](https://support.1password.com/mac-universal-autofill/)
 
 ### Homebrew
 

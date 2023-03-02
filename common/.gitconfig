@@ -1,0 +1,52 @@
+
+[core]
+    excludesfile = ~/.gitignore
+    editor = emacsclient # /Applications/Emacs.app/Contents/MacOS/bin/emacsclient
+[user]
+    name = Dave Abrahams
+    email = dabrahams@adobe.com
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAINvYCN14yI5tUWB3Nbl+pr4CeBIUIA+j+uKcNBD1A71n
+[color]
+    branch = auto
+    diff = auto
+    interactive = auto
+    status = auto
+[rebase]
+    autosquash = true
+    autostash = true
+[rerere]
+    enabled = false
+[sendemail]
+    assume8bitEncoding = utf8
+[merge]
+    conflictstyle = diff3
+
+[merge "git-subline-merge"]
+    name = An interactive merge driver for resolving sub-line conflicts
+    driver = git-subline-merge %O %A %B %L %P
+    recursive = binary
+
+[github]
+    user = dabrahams
+    oauth-token = 89dd303be818d563aa00c55fd328ffddd9e07e90
+
+
+[pull]
+    rebase = false
+    autostash = true
+[init]
+    defaultBranch = main
+[submodule]
+    recurse = true
+    fetchJobs = 0
+[filter "lfs"]
+    required = true
+    clean = git-lfs clean -- %f
+    smudge = git-lfs smudge -- %f
+    process = git-lfs filter-process
+[gpg]
+    format = ssh
+[gpg "ssh"]
+    program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+[commit]
+    # gpgsign = true
