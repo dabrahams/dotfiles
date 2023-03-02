@@ -1,3 +1,6 @@
 [submodule "git-subline-merge"]
 	path = submodule/git-subline-merge
 	url = https://github.com/paulaltin/git-subline-merge.git
+[submodule "submodule/chemacs2"]
+	path = submodule/chemacs2
+	url = https://github.com/plexus/chemacs2.git
