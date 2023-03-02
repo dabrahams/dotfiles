@@ -19,6 +19,8 @@
       inhibit-startup-echo-area-message user-login-name ; no, I really don't want the GNU message
       inhibit-startup-buffer-menu t)
 
+(setq custom-file (concat user-emacs-directory "customizations.el"))
+
 ;; Initialise installed packages
 (setq package-enable-at-startup t)
 
