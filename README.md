@@ -2,6 +2,8 @@
 
 This is a stow directory.  The target directory is always my home directory.
 
+## Status
+
 ## Additional setup steps
 
 ### Mac configuration
@@ -65,3 +67,7 @@ stow -d ~/stow -t ~ emacs
   ```Applescript
   tell application "Finder" to open POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app"
   ```
+
+## Misc
+
+- Use SSH keys with passphrases stored in Mac Keychain

@@ -1,2 +1,0 @@
-#!/usr/bin/env bash
-trash ~/Library/Developer/Xcode/*DerivedData* 2>&1
