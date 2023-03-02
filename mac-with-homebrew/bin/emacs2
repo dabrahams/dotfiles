@@ -1,0 +1,2 @@
+#!/usr/bin/env bash -l
+open -n -a "$(brew --prefix)/opt/emacs-mac/Emacs.app" --args "$@"
