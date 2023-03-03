@@ -1,7 +1,7 @@
 ;;; init.el --- Main emacs configuration -*- lexical-binding: t -*-
 
 ;; Show the buffer name instead of something like <buffer name> Gnu Emacs at <machine name>
-(setq frame-title-format '("%b"))
+(setq frame-title-format '("### %b ###"))
 
 (setq ring-bell-function 'ignore)
 
