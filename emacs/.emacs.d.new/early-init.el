@@ -21,14 +21,15 @@
 
 (setq custom-file (concat user-emacs-directory "customizations.el"))
 
-;; Initialise installed packages
+;; Make packages available during early initialization (this file).
 (setq package-enable-at-startup t)
 
 (defvar package-quickstart)
 
-;; Allow loading from the package cache
+;; Allow loading packages from the package cache
 (setq package-quickstart t)
 
+;; log any warnings during async native compilation but do not pop up *Warnings* buffer.
 (setq native-comp-async-report-warnings-errors 'silent) ; emacs28 with native compilation
 
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
