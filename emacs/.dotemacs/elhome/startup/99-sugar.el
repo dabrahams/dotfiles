@@ -412,8 +412,9 @@ file name matches PATTERN."
 ;(use-package magithub
 ;  :after magit)
 
-(use-package find-file-in-git-repo
-  :bind ("\C-x f" . find-file-in-git-repo))
+(use-package find-file-in-repository
+  :ensure
+  :bind ("\C-x f" . find-file-in-repository))
 
 ;; ---
 (defun ac-clang-cc-mode-setup ()
