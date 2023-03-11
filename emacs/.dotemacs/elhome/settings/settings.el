@@ -1,9 +1,5 @@
 (setq magit-last-seen-setup-instructions "1.4.0")
 
-;; Force load this because we don't seem to be able to make
-;; initsplit/elhome do the right thing.  Bankruptcy again!
-(load-library "mime-settings")
-
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
