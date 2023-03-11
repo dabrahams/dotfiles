@@ -2,5 +2,7 @@
 emacs/*/history
 emacs/*/ido.last
 emacs/*/transient
+emacs/*/recentf
+emacs/*/straight
 emacs/*/elpa
 emacs/*/.tramp_history
