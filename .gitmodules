@@ -4,3 +4,6 @@
 [submodule "submodule/chemacs2"]
 	path = submodule/chemacs2
 	url = https://github.com/plexus/chemacs2.git
+[submodule "prot-dotfiles"]
+	path = submodule/prot-dotfiles
+	url = git@github.com:dabrahams/prot-dotfiles
