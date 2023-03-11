@@ -272,7 +272,11 @@ If you don't do this, all the nice navigation stuff is disabled by default.  Who
  '(diff-switches "-du")
  '(dired-auto-revert-buffer t)
  '(dired-dwim-target nil)
- '(dired-listing-switches "-alh")
+ '(dired-listing-switches "-alhH" nil nil "the default, plus: 
+     -h      When used with the -l option, use unit suffixes
+     -H      Symbolic links on the command line are followed.
+
+-H seems to be required when there are multilevel symlinks to directories, as in my dotfiles.")
  '(dired-recursive-deletes 'always)
  '(display-battery-mode nil)
  '(display-time-mode nil)
