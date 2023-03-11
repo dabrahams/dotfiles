@@ -1,2 +1,2 @@
 #!/usr/bin/env bash --noprofile
-open -n -a "$(brew --prefix)/opt/emacs-mac/Emacs.app" --args --with-profile new "$@"
+emacs2 --with-profile new  "$@"

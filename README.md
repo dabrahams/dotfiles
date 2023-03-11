@@ -58,15 +58,21 @@ brew install git-imerge
 
 ```sh
 brew tap railwaycat/emacsmacport
-brew install emacs-mac --with-native-comp --with-spacemacs-icon
+brew install --cask emacs-mac-spacemacs-icon
 stow -d ~/stow -t ~ emacs
 ```
 
-- Create an Emacs app using script editor in the /Applications folder containing
+- native compilation:
 
-  ```Applescript
-  tell application "Finder" to open POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app"
-  ```
+    ```sh
+    brew install emacs-mac --with-native-comp --with-spacemacs-icon
+    ```
+    
+    Then create an Emacs app using script editor in the /Applications folder containing
+
+    ```Applescript
+    tell application "Finder" to open POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app"
+    ```
 
 ## Misc
 
