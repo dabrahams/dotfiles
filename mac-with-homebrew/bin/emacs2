@@ -1,2 +1,6 @@
 #!/usr/bin/env bash --noprofile
-open -n -a "$(brew --prefix)/opt/emacs-mac/Emacs.app" --args "$@"
+if [[ -e "$(brew --prefix)/opt/emacs-mac/Emacs.app" ]]; then
+    open -n -a "$(brew --prefix)/opt/emacs-mac/Emacs.app" --args "$@"
+else
+    open -n -a "/Applications/Emacs.app" --args "$@"
+fi
