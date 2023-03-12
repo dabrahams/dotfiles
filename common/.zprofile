@@ -12,7 +12,7 @@ if (which brew > /dev/null); then
     eval "$(brew shellenv)"
 else
     BREW=/opt/homebrew/bin/brew
-    [[ -e $(BREW) ]] && eval "$(${BREW} shellenv)"
+    [[ -e "$BREW" ]] && eval "$($BREW shellenv)"
 fi
 
 # Put my bin directory at the head of the PATH.
