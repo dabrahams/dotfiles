@@ -10,11 +10,12 @@
 ;; answer.
 (setq use-short-answers t)
 
+(setq
+ ;; Use straight to install/load everything that I invoke `use-package' on.
+ straight-use-package-by-default t)
+
 ;; Package configuration thing
 (straight-use-package 'use-package)
-
-;; Use straight to install/load everything that I invoke `use-package' on.
-(custom-set-variables '(straight-use-package-by-default t))
 
 ;; To keep some minor modes out of the mode line.
 ;; (use-package diminish)
