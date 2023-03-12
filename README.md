@@ -54,12 +54,23 @@ For now, until I can definitively switch to Nix:
 brew install git-imerge
 ```
 
+### Dotfiles
+
+```sh
+brew install stow
+mkdir -p ~/src
+cd ~/src
+git clone git@github.com:dabrahams/dotfiles
+stow ~/src/dotfiles -t ~ -S common
+dotfile mac-with-homebrew # on MacOS
+```
+
 ### Emacs
 
 ```sh
 brew tap railwaycat/emacsmacport
 brew install --cask emacs-mac-spacemacs-icon
-stow -d ~/stow -t ~ emacs
+dotfile emacs
 ```
 
 - native compilation:
