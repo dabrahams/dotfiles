@@ -12,9 +12,14 @@
 
 ;; Package configuration thing
 (straight-use-package 'use-package)
-(custom-set-variables
- '(straight-use-package-by-default t))
 
-(use-package diminish)
+;; Use straight to install/load everything that I invoke `use-package' on.
+(custom-set-variables '(straight-use-package-by-default t))
 
-; (use-package
+;; To keep some minor modes out of the mode line.
+;; (use-package diminish)
+
+(dolist (path '("init" "lib"))
+  (add-to-list 'load-path (locate-user-emacs-file path)))
+
+(require 'dwa-global-keybindings)
