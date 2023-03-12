@@ -23,3 +23,7 @@
   (add-to-list 'load-path (locate-user-emacs-file path)))
 
 (require 'dwa-global-keybindings)
+
+
+;; packages
+(use-package modus-themes)
