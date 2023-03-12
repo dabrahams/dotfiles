@@ -28,3 +28,4 @@
 
 ;; packages
 (use-package modus-themes)
+(use-package magit)
