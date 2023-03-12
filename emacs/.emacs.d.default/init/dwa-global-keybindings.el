@@ -1,6 +1,7 @@
 (require 'dwa-navigation)
 (require 'dwa-buffers)
 (require 'dwa-compile)
+(require 'dwa-folding)
 
 ;; Prepare the keymap for my globally-overriding bindings.
 (unless overriding-terminal-local-map
@@ -56,6 +57,11 @@ Forwards its arguments to `bind-key', which see."
 	     (v find-variable)
 	     ))
   (bind-key (symbol-name (car b)) (cadr b) dwa/help-map))
+
+(dwa/global-key "C-M-." 'dwa/increase-selective-display)
+(dwa/global-key "C-M-," 'dwa/decrease-selective-display)
+
+(dwa/global-key "C-x v e" 'ediff-revision)
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Unbindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
