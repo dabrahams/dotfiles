@@ -1,2 +1,2 @@
 #!/usr/bin/env bash --noprofile
-emacs2 --with-profile new  "$@"
+emacs2 --with-profile old "$@"

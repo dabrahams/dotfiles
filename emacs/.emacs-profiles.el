@@ -1,3 +1,3 @@
-(("default" . ((user-emacs-directory . "~/.dotemacs")))
- ("new" . ((user-emacs-directory . "~/.emacs.d.new")))
+(("default" . ((user-emacs-directory . "~/.emacs.d.default")))
+ ("old" . ((user-emacs-directory . "~/.emacs.d.old")))
 )
