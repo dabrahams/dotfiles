@@ -21,13 +21,8 @@
 
 (setq custom-file (concat user-emacs-directory "customizations.el"))
 
-;; Make packages available during early initialization (this file).
-(setq package-enable-at-startup t)
-
-(defvar package-quickstart)
-
-;; Allow loading packages from the package cache
-(setq package-quickstart t)
+;; Prevent package from doing anything until straight gets its hooks in
+(setq package-enable-at-startup nil)
 
 ;; log any warnings during async native compilation but do not pop up *Warnings* buffer.
 (setq native-comp-async-report-warnings-errors 'silent) ; emacs28 with native compilation
