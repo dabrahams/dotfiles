@@ -3,9 +3,7 @@ emacs/*/history
 emacs/*/ido.last
 emacs/*/transient
 emacs/*/recentf
-emacs/*/straight/bootstrap.el
-emacs/*/straight/build
-emacs/*/straight/build-cache.el
-emacs/*/straight/repos
+emacs/*/straight/*
+!emacs/*/straight/versions
 emacs/*/elpa
 emacs/*/.tramp_history

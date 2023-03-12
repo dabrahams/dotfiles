@@ -71,6 +71,7 @@ dotfile mac-with-homebrew # on MacOS
 brew tap railwaycat/emacsmacport
 brew install --cask emacs-mac-spacemacs-icon
 dotfile emacs
+brew install watchexec # for fast straight.el startup times
 ```
 
 - native compilation:

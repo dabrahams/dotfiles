@@ -31,3 +31,4 @@
 (add-hook 'window-setup-hook (lambda () (set-frame-font "Monego-15")))
 ;;; early-init.el ends here
 
+(setq straight-check-for-modifications '(watch-files find-when-checking))
