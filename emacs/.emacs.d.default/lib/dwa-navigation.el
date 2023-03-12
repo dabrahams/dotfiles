@@ -4,4 +4,9 @@
   (other-window (- (or n 1)))
   )
 
+(defun dwa/other-buffer ()
+  "Switch to the most recently visited buffer without asking"
+  (interactive)
+  (switch-to-buffer nil))
+
 (provide 'dwa-navigation)

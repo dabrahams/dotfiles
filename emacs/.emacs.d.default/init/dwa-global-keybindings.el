@@ -1,4 +1,6 @@
 (require 'dwa-navigation)
+(require 'dwa-buffers)
+(require 'dwa-compile)
 
 ;; Prepare the keymap for my globally-overriding bindings.
 (unless overriding-terminal-local-map
@@ -19,6 +21,41 @@ Forwards its arguments to `bind-key', which see."
 (dwa/global-key [(control ?,)] 'backward-word)
 (dwa/global-key [(control ?.)] 'forward-word)
 
+;; Beginning/end of buffer.  The defaults for these seem to be beginning/end of line.
+(dwa/global-key [home] 'beginning-of-buffer)
+(dwa/global-key [end] 'end-of-buffer)
+
+;; Normally set to bring up a buffer list, but there are many other
+(dwa/global-key "\C-x\C-b" 'dwa/other-buffer)
+(dwa/global-key "\C-x\C-k" 'dwa/kill-current-buffer)
+
+(dwa/global-key "\C-x\C-g" 'goto-line)
+
+;; Compilation
+(dwa/global-key [f7] 'dwa/recompile)
+(dwa/global-key [(control f7)] 'dwa/compile)
+(dwa/global-key [f4] 'next-error)
+(dwa/global-key [(shift f4)] 'previous-error)
+(dwa/global-key [(control f4)] 'first-error)
+
+;; Help
+(dwa/global-key [(control ?h) ?M] 'man)
+
+(defvar dwa/help-map)
+(define-prefix-command 'dwa/help-map)
+(dwa/global-key [(control ?h) ?e] 'dwa/help-map)
+(dolist (b '((e view-echo-area-messages)
+	     (f find-function)
+	     (d describe-symbol)
+	     (k find-function-on-key)
+	     (l find-library)
+             (m man)
+	     (o customize-option)
+	     (g customize-group)
+	     (s scratch)
+	     (v find-variable)
+	     ))
+  (bind-key (symbol-name (car b)) (cadr b) dwa/help-map))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Unbindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 (when window-system
