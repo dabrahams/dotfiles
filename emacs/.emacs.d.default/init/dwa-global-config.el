@@ -45,15 +45,32 @@
 (use-package ffap
   :bind (("C-x C-f" . find-file-at-point)))
 
+;; Paired delimiters
 (use-package skeleton
   :config
   (set-variable 'skeleton-pair t)
   (set-variable 'skeleton-pair-on-word t)
+
+  ;; There's a lot of markdown in everything these days, so pair backquotes by default
+  (set-variable 'skeleton-pair-alist
+		(cons '(?` _ ?`) skeleton-pair-default-alist))
+
+  ;; Then undo pairings where necessary
+  (defun dwa/prepend-local-skeleton-pairs (pairs)
+    (set-variable 'skeleton-pair-alist (append pairs skeleton-pair-alist) :make-local))
+
+  (add-hook 'emacs-lisp-mode-hook
+	    (lambda () (dwa/prepend-local-skeleton-pairs '((?` _ ?') (?\')))))
+  (add-hook 'lisp-interaction-mode-hook
+	    (lambda () (dwa/prepend-local-skeleton-pairs '((?` _ ?') (?\')))))
+  (add-hook 'tex-mode-hook
+	    (lambda () (dwa/prepend-local-skeleton-pairs '((?` _ ?')))))
+
   :bind (("(" . 'skeleton-pair-insert-maybe)
 	 ("[" . 'skeleton-pair-insert-maybe)
 	 ("{" . 'skeleton-pair-insert-maybe)
 	 ("«" . 'skeleton-pair-insert-maybe)
-	 ("'" . 'skeleton-pair-insert-maybe)
+	 ("`" . 'skeleton-pair-insert-maybe)
 	 ("\"" . 'skeleton-pair-insert-maybe))
   )
 
