@@ -29,5 +29,5 @@
 (require 'dwa-progmodes)
 
 ;; Packages that may or may not get used in a given emacs session
-(use-package magit
- :defer t)
+(use-package magit :defer t)
+(use-package find-file-in-repository :bind (("C-x f" . find-file-in-repository)))
