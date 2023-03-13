@@ -21,7 +21,14 @@
 (use-package modus-themes
   :bind (("<f5>" . 'modus-themes-toggle))
   :init (load-theme 'modus-operandi-tinted :no-confirm)
-  :custom (modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted)))
+  :custom
+  (modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted))
+  (modus-themes-italic-constructs t) ; use italics in code (mostly for comments)
+  (modus-themes-bold-constructs t)   ; use bold in code.
+  (modus-themes-variable-pitch-ui t) ; Variable pitch in my modeline
+  )
+
+(prefer-coding-system 'utf-8)
 
 (provide 'dwa-global-config)
 ;;; dwa-global-config.el ends here
