@@ -8,10 +8,14 @@
   (setq overriding-terminal-local-map (make-sparse-keymap)))
 
 (defmacro dwa/global-key (key-name command &optional predicate)
-  "Bind KEY-NAME to COMMAND in `overriding-terminal-local-map'.
+  "Bind KEY-NAME to COMMAND in a way that's hard to override.
 
 Forwards its arguments to `bind-key', which see."
-  `(bind-key ,key-name ,command overriding-terminal-local-map ,predicate))
+  `(progn
+     (bind-key ,key-name ,command overriding-terminal-local-map ,predicate)
+     ;; the above works for a while, but then overriding-terminal-local-map gets stomped on,
+     ;; so add insurance with `bind-key*', which is imperfect (Magit overrides it).
+     (bind-key* ,key-name ,command ,predicate)))
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
@@ -29,7 +33,7 @@ Forwards its arguments to `bind-key', which see."
 (dwa/global-key [home] 'beginning-of-buffer)
 (dwa/global-key [end] 'end-of-buffer)
 
-;; Normally set to bring up a buffer list, but there are many other
+;; Normally set to bring up a buffer list, but there are many other ways to do that.
 (dwa/global-key "\C-x\C-b" 'dwa/other-buffer)
 (dwa/global-key "\C-x\C-k" 'dwa/kill-current-buffer)
 
