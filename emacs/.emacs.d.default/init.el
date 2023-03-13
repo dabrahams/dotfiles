@@ -12,7 +12,15 @@
 
 (setq
  ;; Use straight to install/load everything that I invoke `use-package' on.
- straight-use-package-by-default t)
+ straight-use-package-by-default t
+
+ ;; cause straight.el to cache the autoloads of all used packages in a single file on disk, and load
+ ;; them from there instead of from the individual package files if they are still up to date. This
+ ;; reduces the number of disk IO operations during startup from O(number of packages) to O(1), so
+ ;; it should improve performance. No other configuration should be necessary to make this work;
+ ;; however, you may wish to call straight-prune-build occasionally
+ straight-cache-autoloads t
+)
 
 ;; Package configuration thing
 (straight-use-package 'use-package)
