@@ -17,8 +17,8 @@
 
 (use-package modus-themes
   :bind (("<f5>" . 'modus-themes-toggle))
-  ; :demand ; override the bind because we want to load the theme
-  :init (load-theme 'modus-operandi-tinted :no-confirm))
+  :init (load-theme 'modus-operandi-tinted :no-confirm)
+  :custom (modus-themes-to-toggle '(modus-operandi-tinted modus-vivendi-tinted)))
 
 (provide 'dwa-global-config)
 ;;; dwa-global-config.el ends here
