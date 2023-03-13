@@ -1,15 +1,5 @@
 ;;; init.el --- Main emacs configuration -*- lexical-binding: t -*-
 
-;; Show the buffer name instead of something like <buffer name> Gnu Emacs at <machine name>
-(setq frame-title-format '("### %b ###"))
-
-(setq ring-bell-function 'ignore)
-
-;; Living dangerously: Emacs officially recommends against this
-;; setting because I'm supposed to take my time and think about an
-;; answer.
-(setq use-short-answers t)
-
 (setq
  ;; Use straight to install/load everything that I invoke `use-package' on.
  straight-use-package-by-default t
@@ -25,6 +15,7 @@
 ;; Package configuration thing
 (straight-use-package 'use-package)
 
+;; Enable `require' for my modules.
 (dolist (path '("init" "lib"))
   (add-to-list 'load-path (locate-user-emacs-file path)))
 
@@ -33,6 +24,9 @@
 
 ;; Other things that affect the overall experience of using emacs
 (require 'dwa-global-config)
+
+;; Other things that affect the overall experience of using emacs
+(require 'dwa-progmodes)
 
 ;; Packages that may or may not get used in a given emacs session
 (use-package magit

@@ -7,8 +7,22 @@
 
 ;;; Commentary: config that's more than just keybinding, and affects the overall emacs experience.
 
+;; Config not related to any particular package
+(use-package emacs
+  :config
+  (prefer-coding-system 'utf-8)
+  (set-variable 'ring-bell-function 'ignore)
+  ;; Show the buffer name instead of something like <buffer name> Gnu Emacs at <machine name>
+  (set-variable 'frame-title-format '("%b"))
+  :custom
+  ;; Answer questions with y or n. Emacs officially recommends against this setting.
+  (use-short-answers t)
+  )
+
 ;; Start the server, suppressing warnings
-(let ((warning-minimum-level :error)) (server-mode))
+(use-package server
+  :config
+  (let ((warning-minimum-level :error)) (server-mode)))
 
 ;; To keep some minor modes out of the mode line.
 (use-package diminish)
@@ -28,7 +42,8 @@
   (modus-themes-variable-pitch-ui t) ; Variable pitch in my modeline
   )
 
-(prefer-coding-system 'utf-8)
+(use-package ffap
+  :bind (("C-x C-f" . find-file-at-point)))
 
 (provide 'dwa-global-config)
 ;;; dwa-global-config.el ends here
