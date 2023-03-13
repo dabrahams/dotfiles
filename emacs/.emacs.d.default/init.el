@@ -17,9 +17,6 @@
 ;; Package configuration thing
 (straight-use-package 'use-package)
 
-;; To keep some minor modes out of the mode line.
-;; (use-package diminish)
-
 (dolist (path '("init" "lib"))
   (add-to-list 'load-path (locate-user-emacs-file path)))
 
