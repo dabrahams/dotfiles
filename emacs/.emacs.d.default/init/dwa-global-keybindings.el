@@ -15,8 +15,11 @@ Forwards its arguments to `bind-key', which see."
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;; Bindings ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
+;; Window navigation
 (dwa/global-key [(control return)] 'other-window)
+(dwa/global-key "C-x C-n" 'other-window)
 (dwa/global-key [(control shift return)] 'dwa/other-window-backward)
+(dwa/global-key "C-x C-p" 'dwa/other-window-backward)
 
 ;; Navigation by words
 (dwa/global-key [(control ?,)] 'backward-word)
@@ -41,7 +44,6 @@ Forwards its arguments to `bind-key', which see."
 
 ;; Help
 (dwa/global-key [(control ?h) ?M] 'man)
-
 (defvar dwa/help-map)
 (define-prefix-command 'dwa/help-map)
 (dwa/global-key [(control ?h) ?e] 'dwa/help-map)
@@ -58,6 +60,7 @@ Forwards its arguments to `bind-key', which see."
 	     ))
   (bind-key (symbol-name (car b)) (cadr b) dwa/help-map))
 
+;; Folding by indentation (selective display)
 (dwa/global-key "C-M-." 'dwa/increase-selective-display)
 (dwa/global-key "C-M-," 'dwa/decrease-selective-display)
 
