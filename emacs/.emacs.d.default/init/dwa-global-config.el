@@ -7,6 +7,9 @@
 
 ;;; Commentary: config that's more than just keybinding, and affects the overall emacs experience.
 
+;; Start the server, suppressing warnings
+(let ((warning-minimum-level :error)) (server-mode))
+
 ;; To keep some minor modes out of the mode line.
 (use-package diminish)
 
