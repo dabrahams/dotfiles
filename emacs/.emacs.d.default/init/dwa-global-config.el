@@ -45,5 +45,17 @@
 (use-package ffap
   :bind (("C-x C-f" . find-file-at-point)))
 
+(use-package skeleton
+  :config
+  (set-variable 'skeleton-pair t)
+  (set-variable 'skeleton-pair-on-word t)
+  :bind (("(" . 'skeleton-pair-insert-maybe)
+	 ("[" . 'skeleton-pair-insert-maybe)
+	 ("{" . 'skeleton-pair-insert-maybe)
+	 ("«" . 'skeleton-pair-insert-maybe)
+	 ("'" . 'skeleton-pair-insert-maybe)
+	 ("\"" . 'skeleton-pair-insert-maybe))
+  )
+
 (provide 'dwa-global-config)
 ;;; dwa-global-config.el ends here
