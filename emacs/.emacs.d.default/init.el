@@ -28,9 +28,12 @@
 (dolist (path '("init" "lib"))
   (add-to-list 'load-path (locate-user-emacs-file path)))
 
+;; Keyboard shortcuts
 (require 'dwa-global-keybindings)
 
+;; Other things that affect the overall experience of using emacs
+(require 'dwa-global-config)
 
-;; packages
-(use-package modus-themes)
-(use-package magit)
+;; Packages that may or may not get used in a given emacs session
+(use-package magit
+ :defer t)
