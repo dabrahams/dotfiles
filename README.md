@@ -70,6 +70,10 @@ dotfile mac-with-homebrew # on MacOS
 ```sh
 brew tap railwaycat/emacsmacport
 brew install emacs-mac --with-native-comp --with-spacemacs-icon
+osacompile -o /Applications/Emacs.app -e \
+  "tell application \"Finder\" to open POSIX file \"$(brew --prefix)/opt/emacs-mac/Emacs.app\"" \
+  && cp $(brew --prefix)/opt/emacs-mac/Emacs.app/Contents/Resources/Emacs.icns \
+  /Applications/Emacs.app/Contents/Resources/applet.icns
 brew install watchexec # for fast straight.el startup times
 dotfile emacs
 ```
