@@ -69,22 +69,16 @@ dotfile mac-with-homebrew # on MacOS
 
 ```sh
 brew tap railwaycat/emacsmacport
-brew install --cask emacs-mac-spacemacs-icon
-dotfile emacs
+brew install emacs-mac --with-native-comp --with-spacemacs-icon
 brew install watchexec # for fast straight.el startup times
+dotfile emacs
 ```
 
-- native compilation:
+Then create an Emacs app using script editor in the /Applications folder containing
 
-    ```sh
-    brew install emacs-mac --with-native-comp --with-spacemacs-icon
-    ```
-    
-    Then create an Emacs app using script editor in the /Applications folder containing
-
-    ```Applescript
-    tell application "Finder" to open POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app"
-    ```
+```Applescript
+tell application "Finder" to open POSIX file "/opt/homebrew/opt/emacs-mac/Emacs.app"
+```
 
 ## Misc
 

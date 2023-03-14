@@ -27,7 +27,11 @@
 ;; log any warnings during async native compilation but do not pop up *Warnings* buffer.
 (setq native-comp-async-report-warnings-errors 'silent) ; emacs28 with native compilation
 
-(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+;; Suppress warning about chained fixups on MacOS. Emacs 28.3 has the fix
+(setq native-comp-driver-options
+      (when (and (eq system-type 'darwin) (equal emacs-version "28.2")) '("-Wl,-w")))
+
+(add-hook 'window-setup-hook 'toggle-frame-maximized)
 (add-hook 'window-setup-hook (lambda () (set-frame-font "Monego-15")))
 ;;; early-init.el ends here
 
